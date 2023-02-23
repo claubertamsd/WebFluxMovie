@@ -1,22 +1,15 @@
 package com.crud.reactive.models;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document
 public class Movie {
-    @Id
     private String id;
     private String title;
-    private String description;
-    private int available;
 
-    public Movie(String id, String title, String description, int available) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.available = available;
-    }
+    private String description;
+    private int year;
+    private Map<String, Availables> avaliacoes = new HashMap<>();
 
     public String getId() {
         return id;
@@ -34,6 +27,14 @@ public class Movie {
         this.title = title;
     }
 
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -42,11 +43,12 @@ public class Movie {
         this.description = description;
     }
 
-    public int getAvailable() {
-        return available;
+    public Map<String, Availables> getAvaliacoes() {
+        return avaliacoes;
     }
 
-    public void setAvailable(int available) {
-        this.available = available;
+    public void setAvaliacoes(Map<String, Availables> avaliacoes) {
+        this.avaliacoes = avaliacoes;
     }
+
 }
